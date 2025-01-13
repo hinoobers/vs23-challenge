@@ -5,7 +5,7 @@ import CartContext from '../store/CartContext'
 
 const Header = () => {
     const {items} = useContext(CartContext);
-    
+    console.log(items);
     return (
         <header id="main-header">
             <div id="title">
