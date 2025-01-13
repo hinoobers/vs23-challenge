@@ -1,20 +1,22 @@
 import Header from "./components/Header"; 
 import Meals from "./components/Meals";
 import Modal from "./components/UI/Modal";
-import { CartProvider } from "./store/CartContext";
+import { CartContext, CartProvider } from "./store/CartContext";
 import ReactDOM from "react-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Cart from "./components/Cart";
 
 const App = () => {
   const [cartIsShown, setCartIsShown] = useState(false);
-
   const showCartHandler = () => {
     setCartIsShown(!cartIsShown);
   }
 
   return (
     <CartProvider>
-      {ReactDOM.createPortal(<Modal toggle={cartIsShown}></Modal>)}
+      <Modal toggle={cartIsShown}>
+        <Cart modal={showCartHandler}></Cart>
+      </Modal>
     <Header modal={showCartHandler}>
       <h1>Food Order App</h1>
     </Header>

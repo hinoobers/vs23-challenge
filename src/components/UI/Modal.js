@@ -4,7 +4,7 @@ const Modal = (props) => {
     const modal = useRef(null);
 
     useEffect(() => {
-        if(props.tpggle) {
+        if(props.toggle) {
             modal.current.showModal();
         } else {
             modal.current.close();
