@@ -11,7 +11,7 @@ const Modal = (props) => {
         }
     }, [props.toggle]);
     return ( 
-        <dialog ref={modal}>
+        <dialog ref={modal} className="modal"> 
             {props.children}
         </dialog>
         
