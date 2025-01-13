@@ -3,7 +3,7 @@ import logo from '../assets/logo.jpg'
 import Button from './UI/Button'
 import { CartContext } from '../store/CartContext';
 
-const Header = () => {
+const Header = (props) => {
     const { items } = useContext(CartContext);
     //console.log(items.length);
 
@@ -14,7 +14,7 @@ const Header = () => {
                 <h1>React Food Order App</h1>
             </div>
             <nav>
-            <Button textOnly={true} onClick={() => {}}>Cart ({items.length})</Button>
+            <Button textOnly={true} onClick={props.modal}>Cart ({items.length})</Button>
             </nav>
         </header>
     )
