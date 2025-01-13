@@ -32,12 +32,12 @@ export const CartProvider = ({children}) => {
         dispatch({type: "ADD_ITEM", payload: item});
     }
 
-    const clear = () => {
+    const clearCart = () => {
         dispatch({type: "CLEAR"});
     }
 
     return (
-        <CartContext.Provider value={{addItem, clear, items: state.items}}>
+        <CartContext.Provider value={{addItem, clearCart, items: state.items}}>
             {children}
         </CartContext.Provider>
     )

@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "../store/CartContext";
 import Button from "./UI/Button";
+import { clear } from "@testing-library/user-event/dist/clear";
 
 const Cart = (props) => {
-    const {items, clear} = useContext(CartContext);
+    const {items, clearCart} = useContext(CartContext);
 
     
     const format = (price) => {
@@ -12,6 +13,13 @@ const Cart = (props) => {
             currency: 'EUR'
         }).format(price)
     }
+
+    let total = 0;
+    items.forEach((item) => {
+        total += item.price * item.quantity;
+    });
+
+    console.log(total);
 
     return (
         <>
@@ -27,13 +35,16 @@ const Cart = (props) => {
                     ))}
                 </ul>
             )}
-            <p className="cart-total">{format(items.reduce((s, n) => (s.price * s.quantity) + (n.price * n.quantity)))}</p>
-            {items.length > 0 && (
-                <div className="modal-actions">
-                    <Button textOnly={true} onClick={props.modal}>Close</Button>
-                    <Button textOnly={false}>Checkout</Button>
-                </div>
-            )}
+
+            <p className="cart-total">{format(total)}</p>
+            <div className="modal-actions">
+                <Button textOnly={true} onClick={props.modal}>Close</Button>
+                {items.length > 0 && (
+                    // Display checkout only if there are > 0 items in the cart
+                    <Button textOnly={false} onClick={clearCart}>Checkout</Button>
+                )}
+            </div>
+
         </>
     );
 };
