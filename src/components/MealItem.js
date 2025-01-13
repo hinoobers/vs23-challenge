@@ -1,6 +1,10 @@
 import Button from "./UI/Button"
+import { useContext } from 'react'
+import { CartContext } from '../store/CartContext';
 
 const MealItem = (props) => {
+    const {addItem } = useContext(CartContext);
+    console.log(context);
 
     const format = (price) => {
         return new Intl.NumberFormat('et-EE', {
