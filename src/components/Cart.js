@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../store/CartContext";
 import Button from "./UI/Button";
-import { clear } from "@testing-library/user-event/dist/clear";
 
 const Cart = (props) => {
     const {items, clearCart} = useContext(CartContext);
