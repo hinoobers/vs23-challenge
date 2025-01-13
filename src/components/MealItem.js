@@ -4,7 +4,7 @@ import { CartContext } from '../store/CartContext';
 
 const MealItem = (props) => {
     const {addItem } = useContext(CartContext);
-    console.log(context);
+    console.log(addItem);
 
     const format = (price) => {
         return new Intl.NumberFormat('et-EE', {
