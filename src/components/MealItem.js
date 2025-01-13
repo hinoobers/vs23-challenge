@@ -1,3 +1,5 @@
+import Button from "./UI/Button"
+
 const MealItem = (props) => {
 
     const format = (price) => {
@@ -16,7 +18,7 @@ const MealItem = (props) => {
                     <p>{props.meal.description}</p>
                 </div>
                 <p>
-                    <button >Add to Cart</button>
+                <Button textOnly={false} onClick={() => {}}>Add to Cart</Button>
                 </p>
             </article>
         </li>
